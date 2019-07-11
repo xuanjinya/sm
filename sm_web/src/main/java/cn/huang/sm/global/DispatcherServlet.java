@@ -47,14 +47,14 @@ public class DispatcherServlet extends GenericServlet {
             methodName = path.substring(0, path.indexOf(".do"));
         }
 
-        System.out.println("beanName："+beanName);
-        System.out.println("methodName："+methodName);
+/*        System.out.println("beanName：" + beanName);
+        System.out.println("methodName：" + methodName);*/
         //DepartmentController
         Object obj = context.getBean(beanName);
 
         try {
-            Method method = obj.getClass().getMethod(methodName,HttpServletRequest.class,HttpServletResponse.class);
-            method.invoke(obj,request,response);
+            Method method = obj.getClass().getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
+            method.invoke(obj, request, response);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

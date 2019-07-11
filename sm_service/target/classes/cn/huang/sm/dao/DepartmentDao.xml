@@ -7,7 +7,7 @@
         <result property="address" column="address" javaType="String"/>
     </resultMap>
 
-    <insert id="insert" parameterType="Department"  useGeneratedKeys="true">
+    <insert id="insert" parameterType="Department" useGeneratedKeys="true">
         insert into department (name,address) values (#{name},#{address})
     </insert>
 
@@ -16,7 +16,7 @@
     </delete>
 
     <update id="update" parameterType="Department">
-      update department set name=#{name},address=#{address}
+      update department set name=#{name},address=#{address} where id=#{id}
     </update>
 
     <select id="selectById" parameterType="Integer" resultMap="resultMap">
